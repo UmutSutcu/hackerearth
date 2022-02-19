@@ -9,31 +9,36 @@ int main()
     int i =0;
 
     while(i<a){
-        int n;
+        long n;
         int counter=0;
-        scanf("%d",&n);
+        scanf("%ld",&n);
 
-        int list[4];
+        long list[4];
 
         for(int j=0;j<4;j++){
-            scanf("%d",&list[j]);
+            scanf("%ld",&list[j]);
         }
 
-        int c[5]={n,0,0,0,0};
+        long c[5]={0,0,0,0,0};
+        c[0]=n;
 
-        for(int j=0;j<4;j++){
-            while(c[j]>0){
-                if(list[j]>=c[j]){
-                    counter++;
-                    c[j+1]=c[j];
-                    c[j]=0;
-                }
-                else {
-                    counter++;
-                    c[j+1]=list[j];
-                    c[j]=n-list[j];
+        while(c[0]>0 || c[1]>0 || c[2]>0 || c[3]>0){
+
+            for(int j=3;j>=0;j--){
+                if(c[j]>0){
+                    if(list[j]>=c[j]){
+                        c[j+1]+=c[j];
+                        c[j]=0;
+                    }
+                    else {
+                        c[j+1]+=list[j];
+                        c[j]-=list[j];
+                    }
                 }
             }
+
+
+            counter++;
         }
         printf("%d\n",counter);
 

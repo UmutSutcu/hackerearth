@@ -23,7 +23,6 @@ int main()
         c[0]=n;
 
         while(c[0]>0 || c[1]>0 || c[2]>0 || c[3]>0){
-
             for(int j=3;j>=0;j--){
                 if(c[j]>0){
                     if(list[j]>=c[j]){
@@ -36,12 +35,10 @@ int main()
                     }
                 }
             }
-
-
             counter++;
         }
+        
         printf("%d\n",counter);
-
         i++;
     }
 

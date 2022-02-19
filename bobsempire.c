@@ -19,7 +19,7 @@ int main()
             scanf("%d",&list[j]);
         }
 
-        int c[5]={n,0,0,0,0};
+        int c[4]={n,0,0,0};
 
         for(int j=0;j<4;j++){
             while(c[j]>0){
